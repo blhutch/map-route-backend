@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'kaminari', '~> 0.16.3'
 gem 'awesome_print'
 gem 'puma'
+gem 'geocoder'
 gem 'geokit-rails'
 
 # Use ActiveModel has_secure_password
