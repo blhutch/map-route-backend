@@ -24,6 +24,7 @@ class GoogleDirections
 	def parse_directions(directions)
 		elements = directions["rows"][0]["elements"][0]
 		{
+			
 			distance: elements["distance"]["text"].split(" ").first.to_f,
 			duration: elements["duration"]["text"].split(" ").first.to_f
 		}
