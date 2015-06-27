@@ -11,7 +11,6 @@ class TripsController < ApplicationController
 
 		@trip = Trip.new(title: title, user: current_user, origin:origin)
 
-
 		if @trip.save
 			render json: @trip, status: :created
 		else
@@ -30,6 +29,11 @@ class TripsController < ApplicationController
 		locations = trip_locations
 		directions = GoogleDirections.new(origin[0], destination[1])
 		drive_time_in_minutes = directions.drive_time_in_minutes
+	end
+
+	def closest_stop
+		@trip = Trip.find(params[:id])
+		@trip.closest(params[:origin])
 	end
   
 end
