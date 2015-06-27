@@ -21,18 +21,28 @@ class GoogleDirections
 
 	end
 
-	def parse_directions(directions)
+	def parse_distance(directions)
 		elements = directions["rows"][0]["elements"][0]
 		{
-			
 			distance: elements["distance"]["text"].split(" ").first.to_f,
+		}
+	end
+
+	def parse_duration(directions)
+		elements = directions["rows"][0]["elements"][0]
+		{
 			duration: elements["duration"]["text"].split(" ").first.to_f
 		}
 	end
 
-	def time_and_distance(origin,destination)
+	def duration(origin,destination)
 		directions = get_directions(origin,destination)
-		parse_directions(directions)
+		parse_duration(directions)
+	end
+
+	def distance(origin,destination)
+		directions = get_directions(origin,destination)
+		parse_distance(directions)
 	end
 
 
