@@ -5,7 +5,6 @@ class CreateLocations < ActiveRecord::Migration
       t.float :lat
       t.float :lng
       t.integer :trip_id
-
       t.timestamps null: false
     end
   end
