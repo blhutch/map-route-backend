@@ -115,9 +115,6 @@ Quick find:
 
 `GET '/trips'`
 
-* **Required Params:**
-  * `title: string`
-
 * Response: 
   * Status Code: 202 success, 404 unsuccessful
 
@@ -222,9 +219,6 @@ Quick find:
 ####Get Locations on a Trip
 
 `GET '/trips/:trip_id/locations'`
-
-* **Required Params:**
-  * `title: string`
 
 * Response: 
   * Status Code: 202 success, 404 unsuccessful
