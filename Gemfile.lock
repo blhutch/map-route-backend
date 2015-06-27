@@ -75,6 +75,9 @@ GEM
       diff-lcs (>= 1.1.2)
       mime-types (>= 1.15)
     hirb (0.7.3)
+    httparty (0.13.5)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jazz_fingers (2.0.0)
       awesome_print (~> 1.6)
@@ -105,6 +108,7 @@ GEM
     mini_portile (0.6.2)
     minitest (5.7.0)
     multi_json (1.11.1)
+    multi_xml (0.5.5)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     pg (0.18.2)
@@ -215,6 +219,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   geocoder
   geokit-rails
+  httparty
   jazz_fingers
   jbuilder (~> 2.0)
   jquery-rails

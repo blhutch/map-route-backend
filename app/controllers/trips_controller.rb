@@ -9,10 +9,8 @@ class TripsController < ApplicationController
 			origin = current_user.home
 		end
 
-		if params[:destination]
-		end
-
 		@trip = Trip.new(title: title, user: current_user, origin:origin)
+
 
 		if @trip.save
 			render json: @trip, status: :created
@@ -24,6 +22,7 @@ class TripsController < ApplicationController
 
 	def index
 		@trips = current_user.trips
+		binding.pry
 		render json: @trips, status: :ok
 	end
   

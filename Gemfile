@@ -26,6 +26,7 @@ gem 'kaminari', '~> 0.16.3'
 gem 'awesome_print'
 gem 'puma'
 gem 'geocoder'
+gem 'httparty'
 gem 'geokit-rails'
 
 # Use ActiveModel has_secure_password
