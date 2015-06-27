@@ -8,6 +8,7 @@ class Trip < ActiveRecord::Base
   def compare_times
   	google = GoogleDirections.new
     origin = self.locations.shift
+    times = location_times(origin)
   end
 
   def location_times(origin)
@@ -16,13 +17,19 @@ class Trip < ActiveRecord::Base
     end
 
     location_pairs.map do |x, y|
-      Google.time_and_distance(x, y)
+      location1 = "#{x["lat"]},#{x["lng"]}"
+      location2 = "#{y["lat"]},#{y["lng"]}"
+      
+      [y["id"], Google.time_and_distance(location1, location2)]
     end
   end
 
   def closest(origin)
     timings = self.location_times(origin)
+  end
 
+  def best_time(times)
+    times.select {|x,y|  == "duration"}.min
   end
 
 end
