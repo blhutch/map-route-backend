@@ -22,7 +22,6 @@ class TripsController < ApplicationController
 
 	def index
 		@trips = current_user.trips
-		binding.pry
 		render json: @trips, status: :ok
 	end
   
