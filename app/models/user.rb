@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_one :home, class_name: "Location", foreign_key: "home_id"
+  has_one :home, :class_name => "Location"
   has_many :trips
   
   EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i

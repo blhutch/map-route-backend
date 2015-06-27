@@ -2,12 +2,18 @@ class UsersController < ApplicationController
 	 before_action :authenticate_with_token!, except: [:register, :login]
 
 	def register
+    street = params[:street]
+    city = params[:city]
+    state = params[:state]
+    zipcode = params[:zipcode]
 	 	password = params[:password]
     username = params[:username]
     email = params[:email]
-    if password && username && email
+
+    if password && username && email && street && city && state && zipcode
       passhash = Digest::SHA1.hexdigest(password)
-      @user = User.new(username: username, email: email, password: passhash)
+      home = Location.create(street:street, city:city, state:state, zipcode:zipcode)
+      @user = User.new(username: username, email: email, password: passhash, home:home)
       if @user.save
         render "register.json.jbuilder", status: :created
       else

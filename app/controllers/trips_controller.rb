@@ -4,7 +4,9 @@ class TripsController < ApplicationController
 
 	def create
 		title = params[:title]
-		origin = current_user.home
+		unless params[:custom]
+			origin = current_user.home
+		end
 
 		@trip = Trip.new(title: title, user: current_user, origin:origin)
 
