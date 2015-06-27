@@ -27,6 +27,7 @@ gem 'awesome_print'
 gem 'puma'
 gem 'geocoder'
 gem 'geokit-rails'
+gem 'google_directions'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

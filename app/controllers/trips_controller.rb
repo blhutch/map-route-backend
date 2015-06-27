@@ -26,5 +26,11 @@ class TripsController < ApplicationController
 		@trips = current_user.trips
 		render json: @trips, status: :ok
 	end
+
+	def directions
+		locations = trip_locations
+		directions = GoogleDirections.new(origin[0], destination[1])
+		drive_time_in_minutes = directions.drive_time_in_minutes
+	end
   
 end
