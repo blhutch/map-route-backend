@@ -1,12 +1,12 @@
-class TripController < ApplicationController
+class TripsController < ApplicationController
 
 	before_action :authenticate_with_token!
 
 	def create
 		title = params[:title]
-		origin = params[:origin_id]
+		origin = current_user.home
 
-		@trip = Trip.new(title: title, user: current_user, origin_id: origin)
+		@trip = Trip.new(title: title, user: current_user, origin:origin)
 
 		if @trip.save
 			render json: @trip, status: :created

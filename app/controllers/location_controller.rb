@@ -1,4 +1,4 @@
-class LocationController < ApplicationController
+class LocationsController < ApplicationController
 
 	before_action :authenticate_with_token!
 
