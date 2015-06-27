@@ -18,13 +18,13 @@ Quick find:
 * [Create a Trip](#create-a-post)
 `POST /trips`
 * [Get the Current User's Trips](#get-a-current-users-trips)
-`GET /trips/:trip_id`
+`GET /trips/`
 
 ####Locations
 * [Create a Location](#create-a-location)
 `POST /trips/:trip_id/locations`
 * [Get Locations on a Trip](#get-locations-on-a-trip)
-`GET /posts/:id/guesses`
+`GET /trips/:trip_id/locations`
 
 ###Users
 ***
