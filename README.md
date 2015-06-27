@@ -2,7 +2,7 @@
 
 base_url: 
 
-```https://nameless-forest-6621.herokuapp.com/```
+`https://nameless-forest-6621.herokuapp.com/`
 
 Authorization occurs by passing the key `Access-Token` with the value of the token in the header of the POST request.  All requests must be validated with a token.
 
