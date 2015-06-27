@@ -101,6 +101,13 @@ Quick find:
 * Example success:
 
 ```json
+{
+  "id": 10,
+  "title": "errands",
+  "user_id": 3,
+  "created_at": "2015-06-27T16:18:06.104Z",
+  "updated_at": "2015-06-27T16:18:06.104Z"
+}
 ```
 
 ***
