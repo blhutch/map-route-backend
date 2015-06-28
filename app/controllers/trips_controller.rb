@@ -30,9 +30,10 @@ class TripsController < ApplicationController
 		drive_time_in_minutes = directions.drive_time_in_minutes
 	end
 
-	def closest_stop
-		@trip = Trip.find(params[:id])
-		@trip.closest(params[:origin])
+	def optimize
+		trip = Trip.find(params[:trip_id])
+		@optimal_route = trip.best_route.to_json
+		render json: @optimal_route
 	end
   
 end

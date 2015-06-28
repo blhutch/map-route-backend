@@ -1,5 +1,7 @@
 class GoogleDirections
+
 	include HTTParty
+	
 	base_uri 'https://maps.googleapis.com/maps/api/distancematrix'
 
 	def initialize 
@@ -23,16 +25,12 @@ class GoogleDirections
 
 	def parse_distance(directions)
 		elements = directions["rows"][0]["elements"][0]
-		{
-			distance: elements["distance"]["text"].split(" ").first.to_f,
-		}
+		elements["distance"]["text"].split(" ").first.to_f
 	end
 
 	def parse_duration(directions)
 		elements = directions["rows"][0]["elements"][0]
-		{
-			duration: elements["duration"]["text"].split(" ").first.to_f
-		}
+		elements["duration"]["text"].split(" ").first.to_f
 	end
 
 	def duration(origin,destination)
