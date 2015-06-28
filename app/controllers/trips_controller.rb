@@ -24,22 +24,10 @@ class TripsController < ApplicationController
 		render json: @trips, status: :ok
 	end
 
-<<<<<<< HEAD
-	def closest_stop
-		@trip = Trip.find(params[:id])
-		@trip.closest(params[:origin])
-=======
-	def directions
-		locations = trip_locations
-		directions = GoogleDirections.new(origin[0], destination[1])
-		drive_time_in_minutes = directions.drive_time_in_minutes
-	end
-
 	def optimize
 		trip = Trip.find(params[:trip_id])
 		@optimal_route = trip.best_route.to_json
 		render json: @optimal_route
->>>>>>> upstream/master
 	end
   
 end
