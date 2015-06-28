@@ -9,6 +9,8 @@ scope defaults: { format: 'json'} do
   	resources :locations , only: [:create, :index]
   end
 
+  post 'trips/:trip_id/optimize', to: 'trips#optimize'
+
 end
 
 end

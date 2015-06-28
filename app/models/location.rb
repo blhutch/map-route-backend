@@ -2,7 +2,7 @@ class Location < ActiveRecord::Base
 
 	belongs_to :user
 	belongs_to :trip
-	validates :street, :city, :state, presence: true
+	validates :street, :city, :state, :zipcode, presence: true
 	geocoded_by :address, :latitude => :lat, :longitude => :lng
 	after_validation :geocode
 
@@ -11,3 +11,4 @@ class Location < ActiveRecord::Base
 	end
 
 end
+
