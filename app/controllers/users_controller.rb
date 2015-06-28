@@ -9,10 +9,11 @@ class UsersController < ApplicationController
 	 	password = params[:password]
     username = params[:username]
     email = params[:email]
+    name = params[:name]
 
     if password && username && email && street && city && state && zipcode
       passhash = Digest::SHA1.hexdigest(password)
-      home = Location.create(street:street, city:city, state:state, zipcode:zipcode)
+      home = Location.create(street:street, city:city, state:state, zipcode:zipcode, name:name)
       @user = User.new(username: username, email: email, password: passhash, home:home)
       if @user.save
         render "register.json.jbuilder", status: :created

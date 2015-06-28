@@ -4,6 +4,7 @@ class TripsController < ApplicationController
 
 	def create
 		title = params[:title]
+		binding.pry
 
 		unless params[:custom]
 			origin = current_user.home
@@ -26,7 +27,8 @@ class TripsController < ApplicationController
 
 	def optimize
 		trip = Trip.find(params[:trip_id])
-		@optimal_route = trip.best_route.to_json
+		router = TripRouter.new(trip.locations)
+		@optimal_route = router.optimize_shortest_distance
 		render json: @optimal_route
 	end
   
