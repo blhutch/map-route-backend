@@ -33,6 +33,14 @@ class GoogleDirections
 		elements["duration"]["text"].split(" ").first.to_f
 	end
 
+	def parse_distance_and_duration(directions)
+		elements = directions["rows"][0]["elements"][0]
+		distance = elements["distance"]["text"].split(" ").first.to_f
+		duration = elements["duration"]["text"].split(" ").first.to_f
+		[distance, duration]
+	end
+
+
 	def duration(origin,destination)
 		directions = get_directions(origin,destination)
 		parse_duration(directions)
@@ -41,6 +49,11 @@ class GoogleDirections
 	def distance(origin,destination)
 		directions = get_directions(origin,destination)
 		parse_distance(directions)
+	end
+
+	def distance_and_duration(origin,destination)
+		directions = get_directions(origin,destination)
+		parse_distance_and_duration(directions)
 	end
 
 
